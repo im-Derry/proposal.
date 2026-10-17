@@ -1,0 +1,107 @@
+<!DOCTYPE html>  <html lang="en">  
+<head>  
+<meta charset="UTF-8">  
+<meta name="viewport" content="width=device-width, initial-scale=1">  
+<meta name="theme-color" content="#fdf4f6">  
+<title>Can We Talk? 🌷</title>  
+<style>  
+:root{--pink:#e98da9;--rose:#c75b7b;--wine:#713c50;--text:#624c56}  
+*{box-sizing:border-box}  
+body{margin:0;min-height:100vh;overflow-x:hidden;font-family:ui-rounded,"Trebuchet MS",system-ui,sans-serif;color:var(--text);background:linear-gradient(145deg,#fff9f7,#fff0f5 55%,#f8edf9)}  
+#sky{position:fixed;inset:0;overflow:hidden;pointer-events:none}  
+.float{position:absolute;bottom:-50px;opacity:0;animation:rise linear infinite;color:#df91a9}  
+@keyframes rise{0%{transform:translateY(0) rotate(0);opacity:0}12%{opacity:.6}90%{opacity:.3}100%{transform:translateY(-115vh) rotate(45deg);opacity:0}}  
+.sparkle{position:absolute;animation:twinkle 3s ease-in-out infinite alternate;color:#d8a5b4}  
+@keyframes twinkle{from{opacity:.25;transform:scale(.8)}to{opacity:.9;transform:scale(1.2)}}  
+main{position:relative;z-index:1;min-height:100vh;display:grid;place-items:center;padding:25px 14px}  
+.card{width:min(650px,100%);padding:clamp(25px,6vw,52px);text-align:center;border:1px solid #ffffffd9;border-radius:30px;background:#ffffffd9;box-shadow:0 25px 80px #8e506018;backdrop-filter:blur(12px);animation:enter 1s ease both}  
+@keyframes enter{from{opacity:0;transform:translateY(22px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}  
+.sticker{width:88px;height:88px;margin:0 auto 18px;display:grid;place-items:center;border-radius:28px;background:#fff0f4;font-size:43px;animation:bob 3s ease-in-out infinite}  
+@keyframes bob{0%,100%{transform:translateY(0) rotate(-4deg)}50%{transform:translateY(-8px) rotate(4deg)}}  
+.kicker{text-transform:uppercase;letter-spacing:.17em;font-size:.75rem;font-weight:700;color:var(--rose)}  
+h1{font:500 clamp(2.3rem,8vw,3.65rem)/1.08 Georgia,serif;color:var(--wine);margin:14px 0}  
+.lead{font-size:1.04rem;line-height:1.8;max-width:490px;margin:0 auto;color:#806874}  
+.line{display:flex;align-items:center;gap:13px;margin:26px 0;color:#d88ca5}  
+.line:before,.line:after{content:"";height:1px;background:#f0d4de;flex:1}  
+.message{background:#fff9fa;border:1px solid #f8e4eb;border-radius:20px;text-align:left;padding:22px clamp(17px,4vw,28px);line-height:1.85;color:#705562}  
+.message p{margin:0 0 13px}.message p:last-child{margin-bottom:0}  
+.ask{font:500 clamp(1.6rem,5vw,2.15rem)/1.3 Georgia,serif;color:var(--wine);margin:29px 0 8px}  
+.hint{font-size:1.4rem;line-height:1.6;color:#9a7b88;margin:0 auto 21px;max-width:440px}  
+.buttons{display:flex;flex-wrap:wrap;justify-content:center;gap:12px}  
+button{border:0;border-radius:999px;padding:14px 21px;font:inherit;font-weight:600;cursor:pointer;transition:transform .2s,box-shadow .2s,background .2s}  
+button:hover{transform:translateY(-3px)}  
+button:focus-visible{outline:3px solid #d95d8277;outline-offset:3px}  
+.primary{background:var(--rose);color:white;box-shadow:0 8px 20px #c75b7b35}  
+.primary:hover{background:#b84d70}  
+.secondary{background:#fff;color:#805c6b;border:1px solid #efd6e0}  
+.response{display:none;margin-top:19px;border-radius:18px;padding:18px;background:#fff0f5;line-height:1.7;color:#75475a;animation:enter .35s ease}  
+.response.show{display:block}  
+.response strong{display:block;font:500 1.35rem Georgia,serif;color:var(--wine);margin-bottom:5px}  
+@media(max-width:430px){.card{border-radius:24px}.buttons{flex-direction:column}button{width:100%;padding:15px}}  
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}  
+</style>  
+</head>  
+<body>  
+<div id="sky" aria-hidden="true"></div>  
+<main>  
+<section class="card">  
+  <div class="sticker" aria-hidden="true">🌷</div>  
+  <div class="kicker">A small message for my bestie</div>  
+  <h1>Hey, bestie…<br>got a minute?</h1>  
+  <p class="lead">It feels a little strange not talking to you for so long, so I thought I’d leave you a tiny message here. 💌</p>  
+  <div class="line">♡</div>  
+  <div class="message">  
+    <p>Dear Chashmish,</p>  
+    <p>We haven’t talked in a while, and I just wanted to say that I miss our conversations — the random talks, the silly things, and simply having you around as my friend.</p>  
+    <p>I’m not here to make things dramatic or put any pressure on you. I just wanted to reach out in a small, slightly different way instead of sending an ordinary text.</p>  
+    <p>If you feel like talking, I’d really love that. We can start with anything — even a simple “hey.” And if now isn’t a good time, that’s okay too. 🤍</p>  
+    <p>Just wanted you to know that I’m here, and I hope you’re doing well.</p>  
+  </div>  
+  <div class="ask">So… can we talk? 💗</div>  
+  <p class="hint" aria-label="shyly asking">🥺👉👈</p>  
+  <div class="buttons">  
+    <button class="primary" id="talk">Of course, let's talk! 💕</button>  
+    <button class="secondary" id="later">Maybe a little later 🌼</button>  
+  </div>  
+  <div class="response" id="response" role="status" aria-live="polite"></div>  
+</section>  
+</main>  
+<script>  
+const sky=document.getElementById('sky');  
+const glyphs=['♡','✧','✿','♥','·'];  for(let i=0;i<30;i++){
+const s=document.createElement('span');
+s.className='float';
+s.textContent=glyphs[i%glyphs.length];
+s.style.left=(Math.random()*100)+'%';
+s.style.fontSize=(13+Math.random()*20)+'px';
+s.style.animationDuration=(10+Math.random()*14)+'s';
+s.style.animationDelay=(Math.random()*18)+'s';
+sky.appendChild(s);
+}
+
+for(let i=0;i<14;i++){
+const s=document.createElement('span');
+s.className='sparkle';
+s.textContent='✦';
+s.style.left=(5+Math.random()*90)+'%';
+s.style.top=(5+Math.random()*90)+'%';
+s.style.fontSize=(8+Math.random()*10)+'px';
+s.style.animationDelay=(Math.random()*3)+'s';
+sky.appendChild(s);
+}
+
+const response=document.getElementById('response');
+
+document.getElementById('talk').addEventListener('click',()=>{
+response.innerHTML='<strong>Yay, bestie! 💗</strong>That makes me happy. Send me a little “hey” whenever you’re ready — I’m glad we can talk.';
+response.classList.add('show');
+});
+
+document.getElementById('later').addEventListener('click',()=>{
+response.innerHTML='<strong>That’s completely okay. 🌷</strong>Take your time. There’s no pressure at all — I just hope you’re doing well.';
+response.classList.add('show');
+});
+</script>
+
+</body>  
+</html>
